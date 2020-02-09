@@ -1,25 +1,27 @@
 <template>
   <div>
-<!--    <app-counter></app-counter>-->
     <app-car>
-      <h2 slot="title">{{carName}}</h2>
-      <p slot="text">Lorem ipsum dolor.</p>
+      <h2 v-colored:background.font="'green'" >{{title}}</h2>
+      <h2 v-colored:color.delay.font="'green'" >{{title}}</h2>
+      <h2 v-font>Local font directive</h2>
     </app-car>
   </div>
 </template>
 
 <script>
 import Car from './Car.vue'
-import Counter from "./Counter";
 export default {
   data () {
     return {
-      carName: 'Ford'
+      title: 'Hello I am Vue!'
     }
   },
-  components: {
-    appCar: Car,
-    appCounter: Counter
+  directives: {
+    font: {
+      bind(el, bindings, vnode) {
+        el.style.fontSize = '40px'
+      }
+    }
   }
 }
 </script>
