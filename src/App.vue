@@ -1,31 +1,29 @@
 <template>
   <div>
-    <app-car>
-      <h2 v-colored:background.font="'green'" >{{title}}</h2>
-      <h2 v-colored:color.delay.font="'green'" >{{title}}</h2>
-      <h2 v-font>Local font directive</h2>
-    </app-car>
+      <h2>Form inputs</h2>
+      <textarea v-model="textarea"> {{ textarea}}</textarea>
+    <p>{{textarea}}</p>
   </div>
 </template>
 
 <script>
-import Car from './Car.vue'
+
 export default {
   data () {
     return {
-      title: 'Hello I am Vue!'
-    }
-  },
-  directives: {
-    font: {
-      bind(el, bindings, vnode) {
-        el.style.fontSize = '40px'
-      }
+      textarea: 'I am initial text!',
+      name: ''
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
+  textarea {
+    height: 100px;
+    width: 500px;
+  }
+  p {
+    white-space: pre;
+  }
 </style>
