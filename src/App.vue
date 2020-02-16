@@ -1,13 +1,8 @@
 <template>
   <div>
       <h2>Form inputs</h2>
-      <select v-model="Social">
-        <option v-for="s in socialList"
-        >{{ s }}</option>
-      </select>
-
-    <hr>
-    <p>{{ social }}</p>
+    <input type="text" v-model.number="age">
+    <p>{{ age }}</p>
   </div>
 </template>
 
@@ -16,9 +11,13 @@
 export default {
   data () {
     return {
-      defaultSocial: 'vk',
-      social: 'instagram',
-      socialList: ['instagram','vk','facebook']
+      age: 20
+    }
+  },
+  watch: {
+    age (value) {
+      console.log(value);
+      console.log(typeof value)
     }
   }
 }
